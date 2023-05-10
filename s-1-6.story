@@ -1,3 +1,5 @@
+The Valet Stand
+
 At the valet stand, there is a crush of wedding-related activity.  You wait until the valets are all away from the stand, then grab keys with an obvious clicker and duck away to the nearby garage.  With a short round of clicking about, you find a blue Porsche Carrera in the corner and jump into the driver's seat.
 
 You picture there being a valet chasing after you as you pull away, but you get away clean and gun the considerable engine out onto the Pacific Coast Highway.  It won't be long before they pick up on your theft grand auto, so you need a place to ditch the car and hide for awhile.

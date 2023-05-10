@@ -1,3 +1,5 @@
+On the Beach
+
 You hang from tree root to tree root as you lower yourself down the side of the sandy cliff.  The ocean is roaring below you.  At one point, you lose your shoe in the sand and have to kick it back on.  The last twenty feet you take in a big jump.
 
 You are at the water's edge.  It is close to high tide and the waves are almost licking the side of the cliff.  You know the coast line here, and there are many points at which you'd have to walk through rocks or go swimming in order to go further south.

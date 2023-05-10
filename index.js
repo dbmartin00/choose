@@ -5,18 +5,17 @@ const readline = require('readline');
 let arrows = [];
 
 const directoryPath = './';
-fs.readdir(directoryPath, (err, files) => {
+fs.readdir(directoryPath, async (err, files) => {
   if (err) {
     console.error('Error reading directory:', err);
     return;
   }
 
   const storyFiles = files.filter(file => path.extname(file) === '.story');
-
+  console.log('storyFiles', storyFiles);
   // console.log('Files ending with .story:');
   let count = 1;
-  storyFiles.forEach(file => {
-    // console.log(file);
+  storyFiles.forEach(file => {    
     const story = fs.readFileSync(file).toString();
     //console.log(story);
     const regex = /\[\[(\?|\d+)-(\?|\d+)\] ([^\]]+)\]/gm;
@@ -33,11 +32,15 @@ fs.readdir(directoryPath, (err, files) => {
     // console.log('sourceChapter', sourceChapter);
     // console.log('sourceSection', sourceSection);
 
+    const title = story.match(/^.+?(?=\n|$)/)[0]; // first line of story
+
     for(const link of matches) {
       const l = {
+        title: title,
         source: {
           chapter: sourceChapter,
-          section: sourceSection
+          section: sourceSection,
+          story: story
         },
         destination: {
           chapter: link[1],
@@ -45,55 +48,112 @@ fs.readdir(directoryPath, (err, files) => {
           description: link[3]
         }
       }
+      console.log('arrow', l);
       arrows.push(l);
     }
   });
 
-  // console.log('arrows', arrows);
-  const tree = {};
-  arrows.forEach((item) => {
-    const source = `Chapter ${item.source.chapter}, Section ${item.source.section}`;
-    const destination = `Chapter ${item.destination.chapter}, Section ${item.destination.section}`;
-    const description = item.destination.description;
+  let chapter = 1;
+  let section = 1;
 
-    if (!tree[source]) {
-      tree[source] = { destination: source, description: '', children: [] };
-    }
 
-    tree[source].children.push({ destination, description, children: [] });
-  });
-
-  Object.keys(tree).forEach((source) => {
-    console.log(source);
-    printTree(tree[source]);
-    console.log('');
-  });    
-
-  let currentChaper = 1;
-  let currentSection = 1;
+  do {
+    story = await showStoryAndTakeChoice(chapter, section);
+    chapter = story.chapter;
+    section = story.section;
+  } while (true);
 
 });
 
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
+let stack = [];
 
-function isIterable(obj) {
-  return obj != null && typeof obj[Symbol.iterator] === 'function';
+async function showStoryAndTakeChoice(chapter, section) {
+  console.log(findStory(chapter, section));
+
+  console.log('stack', stack);
+
+  let story = {chapter: chapter, section: section};
+
+  const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
+  const answer = await question('> Please choose: ');
+  console.log(`Answer: ${answer}`);
+
+  if(!isChapterAndSection(answer) && answer !== 'exit' && answer !== 'back') {
+    console.log('> I do not recognize this answer. Try a chapter - number (e.g. 1-2), back, or exit');    
+    return story; // tread water
+  } else {
+    if(answer === 'exit') {
+      process.exit(0);
+    } else if (answer === 'back') {
+      let backStory = {chapter: 1, section: 1};
+      if(stack.length > 1) {
+        stack.pop(); // current story
+        backStory = stack.pop(); // the one before it
+        console.log('> back to ', backStory);
+        return backStory;
+      } else {
+        return {chapter: 1, section: 1 };
+      }
+    } else {
+      const c = answer.substring(0, answer.indexOf('-'));
+      const s = answer.substring(answer.indexOf('-')+1);
+
+      if(isLegalChoice(chapter, section, c,s)) {
+        story = {chapter: c, section: s}
+        stack.push(story);
+      } else {
+        console.log('> choice not available from here');
+      }
+    }
+  }
+  return story;
 }
 
-function printTree(node, prefix = '') {
-  if (!node.children.length) return;
+function isLegalChoice(chapter, section, c, s) {
+  let result = false;
 
-  const childCount = node.children.length;
-  node.children.forEach((child, index) => {
-    const isLast = index === childCount - 1;
-    const childPrefix = prefix + (isLast ? '└── ' : '├── ');
+  for(const arrow of arrows) {
+    if(arrow.source.chapter == chapter
+      && arrow.source.section == section 
+      && arrow.destination.chapter == c
+      && arrow.destination.section == s)
+       {
+      result = true;
+      break;
+    }    
+  }
 
-    console.log(childPrefix + child.destination);
-    console.log(childPrefix + '  Description: ' + child.description);
-
-    printTree(child, prefix + (isLast ? '    ' : '│   '));
-  });
+  return result;
 }
+
+function isChapterAndSection(answer) {
+  const regex = /(\?|\d+)-(\?|\d+)/;
+  return regex.test(answer);
+}
+
+function sleep(ms) {
+  console.log('waiting for ' + ms + '(ms)');
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });   
+}
+
+function findStory(chapter, section) {
+  let story;
+  for(const arrow of arrows) {
+    if(arrow.source.chapter == chapter
+      && arrow.source.section == section) {
+      story = arrow.source.story;
+      break;
+    }
+  }
+  story = chapter + '-' + section + ' ' + story;
+  return story;
+}
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+

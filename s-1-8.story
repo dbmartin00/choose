@@ -1,3 +1,5 @@
+Pigeon Point
+
 As you walk up to the lighthouse it is almost after dark.  There are some tourists around, catching the sunset from Pigeon Point.  The hostel's office is a clapboard building behind a cypress tree.
 
 The hostel attendant smiles as you enter.

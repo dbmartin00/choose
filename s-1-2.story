@@ -1,3 +1,5 @@
+At the Wedding
+
 You hang on to some tree roots for what feels like hours, waiting for a long silence that indicates your pursuers have gone.  Arms exhausted, you finally clamber back up onto the grass.  The hotel is fifty yards away.  There are no signs of pursuit.  It is sunset.  Nearby, a bagpiper is playing a traditional tune.
 
 You dust the sand off your pants and head to what looks like a kitchen entrance.  
