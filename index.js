@@ -53,13 +53,20 @@ fs.readdir(directoryPath, async (err, files) => {
     }
   });
 
-  
-  for(const arrow of arrows) {
-    
-  }
-
   let chapter = 1;
   let section = 1;
+
+  if(fs.existsSync('saved')) {
+    const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
+    const answer = await question('> You have a saved game. Load it? ');
+    console.log(`Answer: ${answer}`);
+    if(answer.toLowerCase().startsWith('y')) {
+      const jsonStack = fs.readFileSync('saved');
+      stack = JSON.parse(jsonStack);
+      chapter = stack[stack.length - 1].chapter;
+      section = stack[stack.length - 1].section;
+    }
+  }
 
   do {
     story = await showStoryAndTakeChoice(chapter, section);
@@ -86,6 +93,7 @@ async function showStoryAndTakeChoice(chapter, section) {
   console.log(findStory(chapter, section));
 
   console.log('stack', stack);
+  fs.writeFileSync('saved', JSON.stringify(stack, null, 2));
 
   let story = {chapter: chapter, section: section};
 

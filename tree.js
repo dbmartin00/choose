@@ -106,7 +106,7 @@ function drawTree(id, tab, links) {
       seen.add(id);
       for(const link of links) {
         if(link.source === id && link.source !== link.target) {
-          drawTree(link.target, tab + '--', links);
+          drawTree(link.target, tab + '|-', links);
         }
       }
     } 
