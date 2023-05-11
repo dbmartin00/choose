@@ -101,9 +101,6 @@ fs.readdir(directoryPath, async (err, files) => {
 let count = 0;
 let seen = new Set();
 function drawTree(id, tab, links) {
-    if(count++ > 20) {
-      process.exit(1);
-    }
     console.log(tab + id + ': ' + getTitle(id));
     if(!seen.has(id)) {
       seen.add(id);
