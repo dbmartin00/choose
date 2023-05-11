@@ -65,6 +65,7 @@ fs.readdir(directoryPath, async (err, files) => {
       stack = JSON.parse(jsonStack);
       chapter = stack[stack.length - 1].chapter;
       section = stack[stack.length - 1].section;
+      // stack.push(stack[stack.length - 1]);
     }
   }
 
