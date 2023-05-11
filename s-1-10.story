@@ -26,5 +26,5 @@ I give him a minute to mull it over and watch him choose a bag of cheez-its.  Th
 
 The scientist starts yelling for help.  You briefly consider muzzling him, but it's better to get out of here.
 
-[[1-3]Head to the beach to escape notice], or [[1-4]sneak into a room for the night.]
+[[1-3] Head to the beach to escape notice], or [[1-4] sneak into a room for the night.]
 

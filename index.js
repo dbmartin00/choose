@@ -12,7 +12,7 @@ fs.readdir(directoryPath, async (err, files) => {
   }
 
   const storyFiles = files.filter(file => path.extname(file) === '.story');
-  console.log('storyFiles', storyFiles);
+  // console.log('storyFiles', storyFiles);
   // console.log('Files ending with .story:');
   let count = 1;
   storyFiles.forEach(file => {    
@@ -48,14 +48,18 @@ fs.readdir(directoryPath, async (err, files) => {
           description: link[3]
         }
       }
-      console.log('arrow', l);
+      // console.log('arrow', l);
       arrows.push(l);
     }
   });
 
+  
+  for(const arrow of arrows) {
+    
+  }
+
   let chapter = 1;
   let section = 1;
-
 
   do {
     story = await showStoryAndTakeChoice(chapter, section);
@@ -64,6 +68,17 @@ fs.readdir(directoryPath, async (err, files) => {
   } while (true);
 
 });
+
+class Node {
+    constructor(name) {
+        this.name = name;
+        this.children = [];
+    }
+
+    linkTo(node) {
+        this.children.push(node);
+    }
+}
 
 let stack = [];
 
@@ -155,5 +170,4 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 

@@ -6,5 +6,5 @@ It is a couple here to attend the wedding.  From the sound of it, both are tipsy
 
 "Whose shoes are those?" she asks. Then, "Those aren't your shoes!"
 
-You jump up and exclaim, "Facilities!  Carry on..." and exit the room with haste.  In the hallway you decide you have to get out of this place.  [[1-6]Head to the valet and steal a car.] or [[1-3] climb down to the beach behind the hotel.]
+You jump up and exclaim, "Facilities!  Carry on..." and exit the room with haste.  In the hallway you decide you have to get out of this place.  [[1-6] Head to the valet and steal a car.] or [[1-3] climb down to the beach behind the hotel.]
 
