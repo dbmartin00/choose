@@ -24,4 +24,4 @@ You find a quiet spot and flip open the phone, dialing your friend.  He picks up
 
 At that moment, you see several cars pulling up outside.
 
-[[2-11] Escape out the back and head to Thomas' place to decrypt key], or [[2-12] stay to talk to whomever has arrived], or [[2-4] retreat to Golden Gate Park and regroup in safety.] 
+[[2-11] Escape out the back and head to Thomas' place to decrypt key], or [[2-9] stay to talk to whomever has arrived], or [[2-4] retreat to Golden Gate Park and regroup in safety.] 
