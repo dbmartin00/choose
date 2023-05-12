@@ -1,4 +1,4 @@
-Zephyr Cafe Continued
+Zephyr Cafe Continued (*)
 
 While you were enjoying your latte, three cars have screeched to a halt outside the cafe.  You consider trying to escape, but the backdoor is the only other exit and you can see a man with a gun headed in.
 
@@ -22,6 +22,6 @@ Finally, my luck runs out.  The search the booth in which I was seated.  A cop w
 
 You are hauled off to a tiny, uncomfortable jail cell and told to get used to it.
 
-[[?-?] THE END]
+[[0-0] THE END]
 
 This is an ending, but you don't have to like it.  Type 'back' to reverse the story a card. 
