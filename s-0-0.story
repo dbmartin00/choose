@@ -6,4 +6,7 @@ This story and the software to support it were created by David Brooke Martin (d
 
 [[1-1] Return to the beginning of the story.]
 [[2-1] Start from Chapter Two.]
+[[3-1] Start from Chapter Three.]
+[[4-1] Start from Chapter Four.]
+[[5-1] Start from Chapter Five.]
 

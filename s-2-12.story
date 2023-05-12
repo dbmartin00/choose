@@ -4,6 +4,6 @@ The contents of the key is not one file, but hundreds.  They're organized by pha
 
 The final phases discuss waking a subject from her chemically induced sleep.  There are few side effects, but they often include temporary hearing loss, fuzzy vision, and disorientation.  Nothing surprising for a person that has slept for a decade.
 
-You need to get this information published.  
+You need to get this information published and in the hands of expert.  Dr. G is an expert on stassis, and he's located at UCSF's Laurel Heights campus nearby.  
 
-[[?-?] placeholder]
+[[2-13 broadcast it over the internet], [[2-14] ask Thomas to drive you to UCSF], or [[2-15] walk to UCSF wearing your best disguise.] 

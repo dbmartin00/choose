@@ -10,4 +10,4 @@ This last aspect of the sleeper's culture is the one most immediately dangerous 
 
 Thomas indicates the job is done.  You need to visit the professor, Dr. G.  He is the foremost authority on sleeping, and a vocal supporter of the Insomniacs.  Doctor G is located on the UCSF campus at California and Presidio, a few minutes away by car near the Laurel Village neighborhood.  Though the data is safe, authorities are still looking for you. 
 
-[[?-?] Ask Thomas to drive you to UCSF], or [[?-?] walk to UCSF wearing your best disguise.] 
+[[2-14] Ask Thomas to drive you to UCSF], or [[2-15] walk to UCSF wearing your best disguise.] 

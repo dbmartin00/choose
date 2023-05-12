@@ -113,7 +113,7 @@ function drawTree(id, tab, links) {
 }
 
 function getTitle(id) {
-  let result = 'title not found';
+  let result = 'title not found [+]';
 
   for(const node of nodes) {
     if(node.id === id) {
