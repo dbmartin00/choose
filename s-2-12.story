@@ -6,4 +6,4 @@ The final phases discuss waking a subject from her chemically induced sleep.  Th
 
 You need to get this information published and in the hands of expert.  Dr. G is an expert on stassis, and he's located at UCSF's Laurel Heights campus nearby.  
 
-[[2-13 broadcast it over the internet], [[2-14] ask Thomas to drive you to UCSF], or [[2-15] walk to UCSF wearing your best disguise.] 
+[[2-13] broadcast it over the internet], [[2-14] ask Thomas to drive you to UCSF], or [[2-15] walk to UCSF wearing your best disguise.] 
