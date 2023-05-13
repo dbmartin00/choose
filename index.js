@@ -63,9 +63,13 @@ fs.readdir(directoryPath, async (err, files) => {
     if(answer.toLowerCase().startsWith('y')) {
       const jsonStack = fs.readFileSync('saved');
       stack = JSON.parse(jsonStack);
-      chapter = stack[stack.length - 1].chapter;
-      section = stack[stack.length - 1].section;
-      // stack.push(stack[stack.length - 1]);
+      if(stack.length < 1) {
+        chapter = 1;
+        section = 1;
+      } else {
+        chapter = stack[stack.length - 1].chapter;
+        section = stack[stack.length - 1].section;
+      }
     }
   }
 
@@ -127,8 +131,13 @@ async function showStoryAndTakeChoice(chapter, section) {
 
   // const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
   // const answer = await question('> Please choose: ');
-  const answer = readlineSync.question('Please choose: ');
+  let answer = readlineSync.question('Please choose: ');
   console.log(`Answer: ${answer}`);
+
+  if(answer === '') {
+    answer = readlineSync.question('Please choose chapter and section (e.g. 1-2), back or exit: ');
+    console.log(`Answer: ${answer}`);    
+  }
 
   if(!isChapterAndSection(answer) && answer !== 'exit' && answer !== 'back') {
     console.log('> I do not recognize this answer. Try a chapter - number (e.g. 1-2), back, or exit');    
