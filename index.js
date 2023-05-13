@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const readline = require('readline');
 
 let arrows = [];
 
@@ -57,8 +56,9 @@ fs.readdir(directoryPath, async (err, files) => {
   let section = 1;
 
   if(fs.existsSync('saved')) {
-    const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
-    const answer = await question('> You have a saved game. Load it? ');
+    // const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
+    // const answer = await question('> You have a saved game. Load it? ');
+    const answer = readlineSync.question('You have a saved game. Load it? ');
     console.log(`Answer: ${answer}`);
     if(answer.toLowerCase().startsWith('y')) {
       const jsonStack = fs.readFileSync('saved');
@@ -88,19 +88,46 @@ class Node {
     }
 }
 
+const readlineSync = require('readline-sync');
+
+function printWithFixedWidth(text, width, height) {
+    const words = text.split(' ');
+    let line = '';
+    let lineCount = 0;
+
+    for (let i = 0; i < words.length; i++) {
+        if (line.length + words[i].length <= width) {
+            line += words[i] + ' ';
+        } else {
+            console.log(line);
+            line = words[i] + ' ';
+            lineCount++;
+            if (lineCount % height == 0) {
+                readlineSync.question('\n\nPress Enter to continue...\n\n');
+                //console.log('\x1Bc'); // optionally clear the screen
+            }
+        }
+    }
+
+    // Print the remaining line (if it's not empty)
+    if (line.trim() !== '') {
+        console.log(line);
+    }
+}
+
 let stack = [];
 
 async function showStoryAndTakeChoice(chapter, section) {
   process.stdout.write('\x1Bc');
-  console.log(findStory(chapter, section));
-
+  printWithFixedWidth(findStory(chapter, section), 80, 12);
   //console.log('stack', stack);
   fs.writeFileSync('saved', JSON.stringify(stack, null, 2));
 
   let story = {chapter: chapter, section: section};
 
-  const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
-  const answer = await question('> Please choose: ');
+  // const question = (prompt) => new Promise(resolve => rl.question(prompt, resolve));
+  // const answer = await question('> Please choose: ');
+  const answer = readlineSync.question('Please choose: ');
   console.log(`Answer: ${answer}`);
 
   if(!isChapterAndSection(answer) && answer !== 'exit' && answer !== 'back') {
@@ -175,9 +202,4 @@ function findStory(chapter, section) {
   story = chapter + '-' + section + ' ' + story;
   return story;
 }
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 
