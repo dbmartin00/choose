@@ -3,11 +3,13 @@ const path = require('path');
 
 let arrows = [];
 
-const directoryPath = './';
+const directoryPath = './story';
 fs.readdir(directoryPath, async (err, files) => {
   if (err) {
     console.error('Error reading directory:', err);
     return;
+  } else {
+    console.log('files', files);
   }
 
   const storyFiles = files.filter(file => path.extname(file) === '.story');
@@ -15,7 +17,7 @@ fs.readdir(directoryPath, async (err, files) => {
   // console.log('Files ending with .story:');
   let count = 1;
   storyFiles.forEach(file => {    
-    const story = fs.readFileSync(file).toString();
+    const story = fs.readFileSync(directoryPath + '/' + file).toString();
     //console.log(story);
     const regex = /\[\[(\?|\d+)-(\?|\d+)\] ([^\]]+)\]/gm;
 
