@@ -4,8 +4,8 @@ You are at Irving and 19th, just a block from the park.  You know the area and a
 
 In a large stall, you cut and die your hair.  The bleach stings and you wish you had bought the more expensive product.  But in thirty minutes, you've become a blond tourist in shorts and sarcastic t-shirt.  Ick.
 
-Your friend lives in the outer Richmond, on Balboa near the Zephyr Cafe.  But you'll need a phone to reach her.  rOr you could just knock on her door and hope for the best.
+Your friend lives in the outer Richmond, on Balboa near the Zephyr Cafe.  But you'll need a phone to reach him.  rOr you could just knock on his door and hope for the best.
 
-[[2-5] Knock on her door.  Head to the Zephyr Cafe to meet your friend], or [[2-8] find a store that can sell you a burner phone so you can call.]
+[[2-5] Knock on Thomas' door.], or [[2-8] find a store that can sell you a burner phone so you can call.]
 
 

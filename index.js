@@ -91,9 +91,10 @@ class Node {
 let stack = [];
 
 async function showStoryAndTakeChoice(chapter, section) {
+  process.stdout.write('\x1Bc');
   console.log(findStory(chapter, section));
 
-  console.log('stack', stack);
+  //console.log('stack', stack);
   fs.writeFileSync('saved', JSON.stringify(stack, null, 2));
 
   let story = {chapter: chapter, section: section};
