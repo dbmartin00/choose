@@ -9,7 +9,7 @@ fs.readdir(directoryPath, async (err, files) => {
     console.error('Error reading directory:', err);
     return;
   } else {
-    console.log('files', files);
+    console.log('story cards: ', files.length);
   }
 
   const storyFiles = files.filter(file => path.extname(file) === '.story');
